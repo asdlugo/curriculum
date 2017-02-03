@@ -18,11 +18,9 @@ class CreateKnowledgeTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('description');
             $table->integer('percentage');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamps('deteled_at')->nullable();
-            
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamp();
+            
         });
     }
 

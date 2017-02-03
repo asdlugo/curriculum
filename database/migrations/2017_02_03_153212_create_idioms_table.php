@@ -16,9 +16,7 @@ class CreateIdiomsTable extends Migration
         Schema::create('idioms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('description');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamps('deteled_at')->nullable();
+            $table->timestamp();
         });
     }
 

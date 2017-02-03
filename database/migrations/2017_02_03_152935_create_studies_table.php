@@ -22,11 +22,9 @@ class CreateStudiesTable extends Migration
             $table->string('institute');
             $table->float('average');
             $table->string('institute_address');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamps('deteled_at')->nullable();
-
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamp();
+
         });
     }
 

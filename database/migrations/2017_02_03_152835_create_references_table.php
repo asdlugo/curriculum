@@ -21,11 +21,9 @@ class CreateReferencesTable extends Migration
             $table->string('current_job');
             $table->string('workplace');
             $table->string('position');
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamps('deteled_at')->nullable();
-
             $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamp();
+
         });
     }
 
