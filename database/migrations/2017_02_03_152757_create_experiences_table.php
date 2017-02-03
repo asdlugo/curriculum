@@ -15,7 +15,18 @@ class CreateExperiencesTable extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->string('job');
+            $table->date('start_date');
+            $table->date('finish_date');
+            $table->string('workplace');
+            $table->string('position');
+            $table->string('description_task');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamps('deteled_at')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -15,7 +15,17 @@ class CreateReferencesTable extends Migration
     {
         Schema::create('references', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->string('full_name');
+            $table->string('phone_number', 20);
+            $table->string('current_job');
+            $table->string('workplace');
+            $table->string('position');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamps('deteled_at')->nullable();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

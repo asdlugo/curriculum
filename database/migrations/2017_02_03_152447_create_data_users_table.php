@@ -23,7 +23,9 @@ class CreateDataUsersTable extends Migration
             $table->date('birthdate');
             $table->string('phone_number', 20);
             $table->text('direction');
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamps('deteled_at')->nullable();
           
             $table->foreign('user_id')->references('id')->on('users');
         });
@@ -39,6 +41,3 @@ class CreateDataUsersTable extends Migration
         Schema::dropIfExists('data_users');
     }
 }
-
-
-<?php

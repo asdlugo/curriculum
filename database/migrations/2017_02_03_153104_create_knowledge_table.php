@@ -15,7 +15,14 @@ class CreateKnowledgeTable extends Migration
     {
         Schema::create('knowledge', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('user_id')->unsigned();
+            $table->string('description');
+            $table->integer('percentage');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamps('deteled_at')->nullable();
+            
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
